@@ -76,4 +76,34 @@ public class Utils {
     }
     return Utils.boxFormat("v ") + String.join(Utils.boxFormat(" v "), row) + Utils.boxFormat(" v");
   }
+
+  public static double formatHeight(String height) {
+    String[] chars = height.split("");
+    StringBuilder feet = new StringBuilder();
+    StringBuilder inches = new StringBuilder();
+    feet.append("0");
+    inches.append("0");
+    int part = 0;
+    for (String ch: chars) {
+      switch (part) {
+        case 0:
+          if (ch.matches("[0-9]")) {
+            feet.append(ch);
+          }
+          if (ch.matches("'")) {
+            part = 1;
+          }
+          break;
+        case 1:
+          if (ch.matches("[0-9]")) {
+            inches.append(ch);
+          }
+          break;
+        default:
+          break;
+      }
+    }
+
+    return (Double.parseDouble(feet.toString()) * 12) + Double.parseDouble(inches.toString());
+  }
 }

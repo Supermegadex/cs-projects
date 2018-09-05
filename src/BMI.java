@@ -7,17 +7,18 @@ public class BMI {
     Scanner scanner = new Scanner(System.in);
 
     System.out.print("Your name: ");
-    String name = scanner.next();
+    String name = scanner.nextLine();
 
-    System.out.print("Your height in feet: ");
-    double height = scanner.nextDouble();
+    System.out.print("Your height (f'i\"): ");
+    String height = scanner.next();
 
     System.out.print("Your weight in pounds: ");
     double weight = scanner.nextDouble();
 
     scanner.close();
 
-    double inches = height * 12.;
+    double inches = Utils.formatHeight(height);
+    System.out.println();
     double bmi = (weight / (inches * inches)) * 703.0704;
     
     String classification = "";
@@ -31,7 +32,7 @@ public class BMI {
 
     System.out.println(Utils.makeTable(new String[][] {
       {"Name", "Height", "Weight", "BMI", "Classification"},
-      {name, Double.toString(height), Double.toString(weight), formatter.format(bmi), classification}
+      {name, height, Double.toString(weight), formatter.format(bmi), classification}
     }, true));
   }
 }
