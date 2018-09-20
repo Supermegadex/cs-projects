@@ -6,7 +6,7 @@ public class Age {
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
 
-    log("Please tell me your name. ");
+    log("Hello, sweetie! Please tell me your name. ");
     String name = scanner.nextLine();
 
     log("Thank you, %s.\n", new Object[] {name});

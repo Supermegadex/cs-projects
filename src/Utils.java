@@ -106,4 +106,13 @@ public class Utils {
 
     return (Double.parseDouble(feet.toString()) * 12) + Double.parseDouble(inches.toString());
   }
+
+  public static void log(String log, boolean ln) {
+    if (ln) System.out.println(log);
+    else System.out.print(log);
+  }
+
+  public static void log(String msg) {
+    log(msg, true);
+  }
 }
