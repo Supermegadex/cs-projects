@@ -6,6 +6,96 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - Vowels",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "Vowels",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - CompareStrings",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "CompareStrings",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Guess",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "Guess",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - BMI",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "BMI",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - FullMonty",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "FullMonty",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - SCalc",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "SCalc",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Pythagoras",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "Pythagoras",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Schedule",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "Schedule",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Months",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "Months",
+      "args": ""
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - MS",
       "request": "launch",
       "cwd": "${workspaceFolder}",
@@ -19,7 +109,7 @@
       "name": "CodeLens (Launch) - Cool",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "console": "internalConsole",
+      "console": "integratedTerminal",
       "stopOnEntry": false,
       "mainClass": "Cool",
       "args": ""

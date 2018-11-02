@@ -115,4 +115,20 @@ public class Utils {
   public static void log(String msg) {
     log(msg, true);
   }
+
+  static void ticker(String line, Object[] replacements, int interval) throws InterruptedException {
+    String[] f = String.format(line, replacements).split("");
+    for (String character : f) {
+      System.out.print(character);
+      Thread.sleep(interval);
+    }
+  }
+
+  static void ticker(String line, Object[] replacements) throws InterruptedException {
+    ticker(line, replacements, 50);
+  }
+
+  static void ticker(String line) throws InterruptedException {
+    ticker(line, new Object[] {}, 50);
+  }
 }

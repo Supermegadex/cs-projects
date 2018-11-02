@@ -23,9 +23,3 @@ public class MS {
     return x * x;
   }
 }
-
-class Row {
-  Row(double x, double y) {
-
-  }
-}

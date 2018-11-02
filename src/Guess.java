@@ -23,5 +23,7 @@ public class Guess {
     scanner.close();
 
     Utils.log("You got it!");
+
+    // System.out.print((new String("Hello, world!"))[0]);
   }
 }
