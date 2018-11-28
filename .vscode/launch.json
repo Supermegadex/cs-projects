@@ -6,6 +6,36 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - Addresses",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "Addresses",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Sales",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "Sales",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - IgpayAtinlay",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "IgpayAtinlay",
+      "args": ""
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - Vowels",
       "request": "launch",
       "cwd": "${workspaceFolder}",

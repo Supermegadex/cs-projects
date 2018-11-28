@@ -22,9 +22,7 @@ public class CompareStrings {
         value = next;
         success = true;
       }
-      else {
-        Utils.log("Whoops. We need ten plus: ", false);
-      }
+      else Utils.log("Whoops. We need ten plus: ", false);
     }
     return value;
   }
