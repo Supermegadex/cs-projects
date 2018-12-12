@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Sales {
   public static void main(String[] args) throws FileNotFoundException, IOException {
     BufferedReader reader = new BufferedReader(
-      new FileReader("C:\\Users\\delpi\\Documents\\cs\\hello-world\\src\\in\\22c_sales.txt")
+      new FileReader("C:\\Users\\delpi\\Documents\\cs\\hello-world\\in\\22c_sales.txt")
     );
 
     ArrayList<String> cups = new ArrayList<>();

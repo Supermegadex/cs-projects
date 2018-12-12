@@ -6,6 +6,16 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - Test",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "Test",
+      "args": ""
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - Addresses",
       "request": "launch",
       "cwd": "${workspaceFolder}",
