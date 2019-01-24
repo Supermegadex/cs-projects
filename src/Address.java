@@ -6,6 +6,12 @@ public class Address implements Comparator<Address> {
   private String street;
   private String csz;
 
+  /**
+   * Create an address object
+   * @param name Name of resident.
+   * @param street House number and street name.
+   * @param csz City, State, ZIP
+   */
   Address(String name, String street, String csz) {
     this.name = name;
     this.street = street;

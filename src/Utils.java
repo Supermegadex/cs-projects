@@ -65,10 +65,6 @@ public class Utils {
 
   public static String makeTableRow(String[] row, int[] lengths) {
     for (int i = 0; i < row.length; i++) {
-      // System.out.println("INDEX: " + i);
-      // System.out.println("VALUE: " + row[i]);
-      // System.out.println("CELL LENGTH: " + row[i].length());
-      // System.out.println("COLUMN LENGTH: " + lengths[i]);
       int toAdd = lengths[i] - 2 - row[i].length();
       for (int j = 0; j < toAdd; j++) {
         row[i] += " ";
