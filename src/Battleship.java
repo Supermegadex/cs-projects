@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -14,8 +13,8 @@ import java.util.Scanner;
  */
 
 class BattleshipState {
-  int[][] p1Board = new int[10][10];
-  int[][] p2Board = new int[10][10];
+  private int[][] p1Board = new int[10][10];
+  private int[][] p2Board = new int[10][10];
 
   BattleshipState() {
     for (int y = 0; y < 10; y++) {
@@ -51,8 +50,8 @@ class BattleshipState {
     return board[y][x];
   }
 
-  String getBoard(int player, int state) {
-    return getBoard(player == 1 ? p1Board : p2Board, state);
+  String getBoard(int player) {
+    return getBoard(player == 1 ? p1Board : p2Board, 0);
   }
 
   String getBoard(int[][] pBoard, int state) {
@@ -62,7 +61,7 @@ class BattleshipState {
 
     int rowIndex = 0;
     for (int[] row: pBoard) {
-      board.append("\n" + Utils.boxFormat(rowIndex + " v"));
+      board.append("\n").append(Utils.boxFormat(rowIndex + " v"));
       rowIndex++;
       for (int cell: row) {
         if (state == 0) {
@@ -94,18 +93,16 @@ class BattleshipState {
     int[][] board = player == 1 ? p1Board : p2Board;
     int[][] clone = new int[10][10];
     for (int y = 0; y < 10; y++) {
-      for (int x = 0; x < 10; x++) {
-        clone[y][x] = board[y][x];
-      }
+      System.arraycopy(board[y], 0, clone[y], 0, 10);
     }
     return clone;
   }
 
-  void setP1Board(int[][] p1Board) {
+  private void setP1Board(int[][] p1Board) {
     this.p1Board = p1Board;
   }
 
-  void setP2Board(int[][] p2Board) {
+  private void setP2Board(int[][] p2Board) {
     this.p2Board = p2Board;
   }
 
@@ -119,7 +116,7 @@ class BattleshipState {
 }
 
 public class Battleship {
-  static BattleshipState state = new BattleshipState();
+  private static BattleshipState state = new BattleshipState();
   static Scanner scanner = new Scanner(System.in);
 
   public static void main(String[] args) {
@@ -129,51 +126,57 @@ public class Battleship {
     Utils.log("There are two ships, one is four spaces, the other is three.");
     Utils.log("When yer done with a ship, type \"done!\"\nPress enter now to get started.", false);
     scanner.nextLine();
-    Utils.log("\n\n\n\n\n\n\n\n\nPlayer 1, place your ship!");
+    Utils.log("\n\n\n\n\n\n\n\n\nPlayer One, place your ship!");
     placeShip(1, 4);
     Utils.log("\n\n\n\n\n\n\n\n\nGreat job! Now for the second one.");
     placeShip(1, 3);
-    Utils.log("\n\n\n\n\n\n\n\n\n\n\nWell done, player one! It's yer turn, player 2!");
+    Utils.log("Number 3");
+    placeShip(1, 3);
+    Utils.log("Number 4");
+    placeShip(1, 2);
+    Utils.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWell done, Player One! It's yer turn, Player Two!");
     placeShip(2, 4);
     Utils.log("\n\n\n\n\n\n\n\n\nGreat job! Now for the second one.");
     placeShip(2, 3);
-    Utils.log("Alrighty, excellent job, mateys! When you're ready, we'll get started.");
+    Utils.log("Number 3");
+    placeShip(2, 3);
+    Utils.log("Number 4");
+    placeShip(2, 2);
+    Utils.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" +
+            "Alrighty, mateys! When you're ready, press enter.");
     scanner.nextLine();
     startLoop();
   }
 
-  static void startLoop() {
-    int winner = 0;
+  private static void startLoop() {
     Utils.log("\n\n\n\n\n\n\n\nGuess where the other player's ships are!");
     Utils.log("Type in coordinates like A1 or H4.");
     while (true) {
       Utils.log("Press enter when Player 1 is ready.");
       scanner.nextLine();
       Utils.log("\n\n\n\n");
-      Utils.log(state.getBoard(2, 0));
+      Utils.log(state.getBoard(2));
       Utils.log("Player 1, enter your guess: ", false);
       int[] choice = validateInput();
       int result = state.fire(2, choice);
       Utils.log("\n\n");
-      Utils.log(state.getBoard(2, 0));
+      Utils.log(state.getBoard(2));
       printResult(result);
-      if (state.totalHits(2) == 7) {
-        winner = 1;
+      if (state.totalHits(2) == 12) {
         Utils.log("\nYou won!");
         break;
       }
       Utils.log("\n\nPress enter when Player 2 is ready.");
       scanner.nextLine();
       Utils.log("\n\n\n\n");
-      Utils.log(state.getBoard(1, 0));
+      Utils.log(state.getBoard(1));
       Utils.log("Player 2, enter your guess: ", false);
       choice = validateInput();
       result = state.fire(1, choice);
       Utils.log("\n\n");
-      Utils.log(state.getBoard(1, 0));
+      Utils.log(state.getBoard(1));
       printResult(result);
-      if (state.totalHits(1) == 7) {
-        winner = 2;
+      if (state.totalHits(1) == 12) {
         Utils.log("\nYou won!");
         break;
       }
@@ -181,7 +184,7 @@ public class Battleship {
     Utils.log("Congratulations!");
   }
 
-  static void printResult(int result) {
+  private static void printResult(int result) {
     if (result == 2) {
       Utils.log("You missed! Shucks!");
     }
@@ -190,7 +193,7 @@ public class Battleship {
     }
   }
 
-  static int[] validateInput() {
+  private static int[] validateInput() {
     boolean valid = false;
     String letters = "abcdefghij";
     int[] coords = {0, 0};
@@ -230,7 +233,7 @@ public class Battleship {
     return coords;
   }
 
-  static void placeShip(int player, int length) {
+  private static void placeShip(int player, int length) {
     int dir = 0;
     int x = 0;
     int y = 0;
@@ -274,7 +277,7 @@ public class Battleship {
     }
   }
 
-  static boolean setShipOnBoard(int[][] board, int x, int y, int dir, int length) {
+  private static boolean setShipOnBoard(int[][] board, int x, int y, int dir, int length) {
     boolean isOverlapping = false;
     if (dir == 0) {
       for (int col = x; col < length + x; col++) {
